@@ -4,7 +4,7 @@
 
 <div align="center">
   <h1>👑 O Problema das N Rainhas 👑</h1>
-  <h3>Projeto da disciplina de sistemas distribuidos</h3>
+  <h3>Projeto da disciplina de Sistemas Distribuidos</h3>
 </div>
 <div>
 
@@ -13,7 +13,7 @@
   <li>Sidney</li>
   <li>Joyce</li>
   <li>Jessica</li>
-  <li>Marcos</li>
+  <li>Marcus</li>
   <li>Lucas</li>
   <li>Douglas</li>
   <li>Hebert</li>
