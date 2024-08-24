@@ -1,5 +1,5 @@
 import time
-from save_board import seq_print_board, print_summary
+from save_board import seq_print_board, seq_print_summary
 
 def is_position_safe(board, row, col):
     # Verifica se é seguro colocar uma rainha na posição (row, col) do tabuleiro.
@@ -38,8 +38,6 @@ def print_boards(solutions):
     # Imprime todas as soluções encontradas.
     for index, board in enumerate(solutions):
         seq_print_board(board, index + 1)  # Passa o número da solução para a função
-        print(f"Solução {index + 1}:")
-        print()
 
 def main(n):
     # Função principal para resolver o problema das N-rainhas e imprimir todas as soluções.
@@ -55,11 +53,12 @@ def main(n):
     print(f"Total de soluções encontradas: {len(solutions)}")
     print(f"Tempo total de execução: {total_time:.2f} segundos\n")
     
+    # Imprimir soluções usando a função sequencial
     print_boards(solutions)
 
     # Imprime o resumo das soluções
-    print_summary(len(solutions), total_time)
+    seq_print_summary(len(solutions), total_time)
 
 # Exemplo de uso:
 if __name__ == "__main__":
-    main(8)  # Substitua 8 pelo tamanho desejado do tabuleiro
+    main(13)  # Substitua 8 pelo tamanho desejado do tabuleiro
