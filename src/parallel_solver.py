@@ -32,8 +32,11 @@ def solve_nqueens(board, col, solutions):
     for row in range(len(board)):
         if is_position_safe(board, row, col):
             board[row][col] = 1
+            # print(f"Posicionando rainha em ({row}, {col}).")
+            
             solve_nqueens(board, col + 1, solutions)
             board[row][col] = 0  # Backtracking
+            # print(f"Removendo rainha de ({row}, {col}) devido a conflito.")
 
 def solve_nqueens_parallel(row, n, shared_solutions):
     board = [[0] * n for _ in range(n)]
@@ -75,7 +78,7 @@ def main(n):
         print(f"Total de soluções encontradas: {len(shared_solutions)}")
         print(f"Tempo total de execução: {total_time:.2f} segundos\n")
         
-        # Imprimir soluções usando a função paralela
+        # Imprimir soluções usando a função paralela com processos
         print_boards(shared_solutions)
 
         par_print_summary(len(shared_solutions), total_time)
