@@ -1,43 +1,23 @@
-import time
-from sequential_solver import solve_nqueens, print_boards
-from save_board import seq_print_board, print_summary, clear_logs
-
-"""
-Dado um tabuleiro de xadrez de N x N, o objetivo é posicionar N rainhas no 
-tabuleiro de tal forma que nenhuma rainha possa atacar outra.
-Em termos de xadrez, uma rainha pode atacar qualquer outra peça que esteja na mesma linha, coluna ou diagonal.
-"""
+from sequential_solver import main as sequential_main
+from parallel_solver import main as parallel_main
+from thread_solver import main as thread_main
+from save_board import clear_logs
 
 def main(n):
     """
-    Função principal para resolver o problema das N-rainhas e imprimir todas as soluções.
+    Função principal para executar todas as implementações do problema das N-rainhas.
     """
     # Limpa os logs antigos antes de iniciar uma nova execução
     clear_logs()
 
-    board = [[0] * n for _ in range(n)]
-    solutions = []
-
-    # Início da medição do tempo
-    start_time = time.time()
+    print("Executando Sequential Solver:")
+    sequential_main(n)
     
-    # Resolve o problema das N-rainhas
-    solve_nqueens(board, 0, solutions)
+    print("\nExecutando Parallel Solver:")
+    parallel_main(n)
     
-    # Fim da medição do tempo
-    end_time = time.time()
-    
-    total_time = end_time - start_time  # Tempo total de execução
-
-    # Imprime informações de resumo
-    print(f"Total de soluções encontradas: {len(solutions)}")
-    print(f"Tempo total de execução: {total_time:.2f} segundos\n")
-    
-    # Imprime as soluções e registra no log
-    print_boards(solutions)
-    
-    # Imprime o resumo das soluções
-    print_summary(len(solutions), total_time)
+    print("\nExecutando Thread Solver:")
+    thread_main(n)
 
 # Exemplo de uso:
 if __name__ == "__main__":
