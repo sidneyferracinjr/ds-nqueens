@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run MPI",
+            "type": "shell",
+            "command": "mpiexec",
+            "args": [
+                "-n",
+                "8", //numero de núcleos  
+                "python",
+                "${file}" 
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

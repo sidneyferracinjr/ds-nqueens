@@ -21,4 +21,5 @@ def main(n):
 
 # Exemplo de uso:
 if __name__ == "__main__":
-    main(8)  # Substitua 8 pelo tamanho desejado do tabuleiro
+    main(12)  # Substitua 8 pelo tamanho desejado do tabuleiro
+    input("Pressione Enter para sair...")
