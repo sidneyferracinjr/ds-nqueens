@@ -1,18 +1,24 @@
-import sequential_solver
+from sequential_solver import main as sequential_main
+from parallel_solver import main as parallel_main
+from thread_solver import main as thread_main
+from save_board import clear_logs
 
-"""
-Dado um tabuleiro de xadrez de N x N, o objetivo é posicionar N rainhas no 
-tabuleiro de tal forma que nenhuma rainha possa atacar outra.
-Em termos de xadrez, uma rainha pode atacar qualquer outra 
-peça que esteja na mesma linha, coluna ou diagonal.
-"""
+def main(n):
+    """
+    Função principal para executar todas as implementações do problema das N-rainhas.
+    """
+    # Limpa os logs antigos antes de iniciar uma nova execução
+    clear_logs()
 
-# Altera o tamanho do tabuleiro #
-n = 8
-# ----------------------------- #
+    print("Executando Sequential Solver:")
+    sequential_main(n)
+    
+    print("\nExecutando Parallel Solver:")
+    parallel_main(n)
+    
+    print("\nExecutando Thread Solver:")
+    thread_main(n)
 
-board = [[0] * n for _ in range(n)]
-if sequential_solver.solve_nqueens(board, 0):
-    sequential_solver.print_board(board)
-else:
-    print("Não existe solução para o problema das", n, "rainhas.")
+# Exemplo de uso:
+if __name__ == "__main__":
+    main(8)  # Substitua 8 pelo tamanho desejado do tabuleiro

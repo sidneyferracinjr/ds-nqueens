@@ -1,59 +1,27 @@
-def is_position_safe(board, row, col):
-    # Verifica se é seguro colocar uma rainha na posição (row, col) do tabuleiro.
-    # board (list): Matriz 2D representando o tabuleiro.
-    # row (int): Linha do tabuleiro.
-    # col (int): Coluna do tabuleiro.
+import time
+from save_board import print_board, print_summary, seq_logger
+from solve_utils import solve_nqueens, print_boards
 
-    # Retorna True se o local da rainha cumprir o objetivo, False caso contrário.
+def main(n):
+    # Função principal para resolver o problema das N-rainhas e imprimir todas as soluções.
+    board = [[0] * n for _ in range(n)]
+    solutions = []
 
-    # Verifica a linha à esquerda
-    for i in range(col):
-        if board[row][i] == 1:
-            return False
+    start_time = time.time()  # Início da medição do tempo
+    solve_nqueens(board, 0, solutions)
+    end_time = time.time()  # Fim da medição do tempo
 
-    # Verifica a diagonal superior esquerda
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
+    total_time = end_time - start_time  # Tempo total de execução
 
-    # Verifica a diagonal inferior esquerda
-    for i, j in zip(range(row, len(board)), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
+    print(f"Total de soluções encontradas: {len(solutions)}")
+    print(f"Tempo total de execução: {total_time:.2f} segundos\n")
+    
+    # Imprimir soluções usando a função genérica
+    print_boards(solutions, lambda board, index: print_board(board, index, seq_logger))
 
-    return True
+    # Imprime o resumo das soluções
+    print_summary(len(solutions), total_time, seq_logger)
 
-
-def solve_nqueens(board, col):
-    # Resolve o problema das N-rainhas usando backtracking.
-    # board (list): Matriz 2D representando o tabuleiro.
-    # col (int): Coluna atual para posicionar a rainha.
-
-    # Retorna True se uma solução for encontrada, False caso contrário.
-
-    if col >= len(board):
-        return True
-
-    for row in range(len(board)):
-        if is_position_safe(board, row, col):
-            board[row][col] = 1
-            print(f"Posicionando rainha em ({row}, {col}).")
-
-            if solve_nqueens(board, col + 1):
-                return True
-
-            # Backtracking: remover a rainha e tentar outra posição
-            board[row][col] = 0
-            print(f"Removendo rainha de ({row}, {col}) devido a conflito.")
-
-    return False
-
-
-def print_board(board):
-    # Imprime o tabuleiro de forma amigável.
-    # board (list): Matriz 2D representando o tabuleiro.
-
-    print("Solução encontrada:\n")
-    for row in board:
-        print(" ".join(" ♕ " if cell else " - " for cell in row))
-    print()
+# Exemplo de uso:
+if __name__ == "__main__":
+    main(8)  # Substitua 8 pelo tamanho desejado do tabuleiro
