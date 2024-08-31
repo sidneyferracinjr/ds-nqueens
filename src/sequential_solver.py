@@ -4,6 +4,7 @@ from save_board import print_board, print_summary, seq_logger
 from solve_utils import solve_nqueens, print_boards
 
 def main(n):
+    # Função principal para resolver o problema das N-rainhas e imprimir todas as soluções.
     board = [[0] * n for _ in range(n)]
     solutions = []
 
