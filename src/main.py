@@ -6,6 +6,8 @@ from save_board import clear_logs
 def main(n):
     """
     Função principal para executar todas as implementações do problema das N-rainhas.
+    
+    Repositório Git do trabalho: https://github.com/sidneyferracinjr/ds-nqueens
     """
     # Limpa os logs antigos antes de iniciar uma nova execução
     clear_logs()
