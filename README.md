@@ -196,7 +196,7 @@
     - Uso de bibliotecas de baixo nível para reduzir o overhead de comunicação entre processos.
     - Adotar uma abordagem híbrida que combine paralelismo de dados e de tarefas.
 
- - O tempo de execução e uso de memória pode varias conforme a configuração da maquina mas idependente da configuração a solução `parallel_solver.py` se mostra mais eficiente que as soluções `sequential_solver;py` e `thread_solver.py` para números maiores de rainhas, e as soluções sequencial e paralela com threads se mostram eficiente para números menores de rainhas.
+ - O tempo de execução e uso de memória pode variar conforme a configuração da maquina mas idependente da configuração a solução `parallel_solver.py` se mostra mais eficiente que as soluções `sequential_solver;py` e `thread_solver.py` para números maiores de rainhas, e as soluções sequencial e paralela com threads se mostram eficiente para números menores de rainhas.
 
  ## Conclusão
 
