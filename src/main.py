@@ -23,3 +23,8 @@ def main(n):
 if __name__ == "__main__":
     main(12)  # Substitua 8 pelo tamanho desejado do tabuleiro
     input("Pressione Enter para sair...")
+
+
+"""
+github: https://github.com/sidneyferracinjr/ds-nqueens
+"""
