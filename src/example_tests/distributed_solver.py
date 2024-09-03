@@ -1,3 +1,8 @@
+import sys
+import os
+
+# Adiciona o diretório anterior ao caminho de pesquisa de módulos
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from mpi4py import MPI
 import time
 from save_board import print_board, print_summary, par_logger
